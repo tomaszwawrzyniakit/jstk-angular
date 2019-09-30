@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jstk Angular</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="Jstk Angular" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <link rel="icon" href="common/img/favicon.ico" />
+    <link rel="stylesheet" href="reveal.js-3.8.0/css/reveal.css" />
+    <link rel="stylesheet" href="reveal.js-3.8.0/css/theme/white.css" />
+    <link rel="stylesheet" href="common/css/common.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal.js-3.8.0/lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <!-- <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script> -->
+  </head>
+  <body>
+    <div class="devon reveal">
+      <div class="slides">
+        <section data-background-image="common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+          <div style="display: flex; flex-direction: column">
+            <div style="align-self: flex-end; display: flex; flex-direction: column">
+              <img height="120em" class="no-background no-border no-margin no-shadow" src="common/img/angular-logo.svg" />
+              <h2 class="white">Jstk Angular Training</h2>
+              <p class="credits">by twawrzyn</p>
+            </div>
+          </div>
+        </section>
+        <section class="agenda" data-background-image="common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+          <ul>
+            <li>
+              <a href="es6_ts/index.html"> Basics of ES6 & Typescript </a>
+            </li>
+            <li>
+              <a href="scaffolding/index.html">Starting with Angular</a>
+            </li>
+            <li>
+              <a href="architecture/index.html">Architecture (Modules, Components, Service)</a>
+            </li>
+            <li>
+              <a href="router/index.html">Router</a>
+            </li>
+            <li>
+              <a href="rxjs/index.html">RXJS</a>
+            </li>
+            <li>
+              <a href="http-client/index.html">HttpClient</a>
+            </li>
+            =====
+            <li>
+              <a href="reactive-form/index.html">Reactive Forms</a>
+            </li>
+            <li>
+              <a href="advanced-routing/index.html">Advanced Routing</a>
+            </li>
+            <li>
+              <a href="testing/index.html">Unit Testing</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="reveal.js-3.8.0/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Syntax highlight for <code> elements
+          {
+            src: "reveal.js-3.8.0/lib/js/classList.js",
+            condition: function() {
+              return !document.body.classList;
+            }
+          },
+          {
+            src: "../reveal.js-3.8.0/plugin/highlight/highlight.js",
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          },
+          { src: "reveal.js-3.8.0/plugin/search/search.js", async: true },
+          { src: "reveal.js-3.8.0/plugin/zoom-js/zoom.js", async: true },
+          { src: "reveal.js-3.8.0/plugin/notes/notes.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
