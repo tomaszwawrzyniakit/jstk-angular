@@ -5,9 +5,15 @@
     <meta charset="utf-8" />
     <meta name="author" content=" " />
     <meta name="description" content="Reactive Forms" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../reveal.js-3.8.0/css/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-3.8.0/css/theme/white.css" />
     <link rel="stylesheet" href="../common/css/common.css" />
@@ -27,9 +33,429 @@
   <body>
     <div class="reveal white">
       <div class="slides">
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Reactive Forms</h2>
           <p class="credits">by twawrzyn</p>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Model-Driven Forms</h3>
+          <h4 class="white">a.k.a Reactive Forms</h4>
+          <ul>
+            <li>
+              structure and validation defined in an model,
+            </li>
+            <li>
+              validator is an simple function,
+            </li>
+            <li>
+              can be used in reactive-way.
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h2 class="white">Model-Driven Forms a.k.a Reactive Forms</h2>
+          <ul>
+            <li>
+              <key>FormControl</key> is a simplest form unit, encapsulates the
+              state of the control,
+            </li>
+            <li>
+              <key>FormGroup</key> manage the set of <key>FormControls,</key>
+            </li>
+            <li><key>FormGroups</key> can be nested,</li>
+            <li>
+              should be initialised in ngOnInit,
+            </li>
+            <li>
+              wraps all standard inputs: input/checkbox/select,
+            </li>
+            <li>
+              reactive access and static access to values,
+            </li>
+            <li>static setter with <key>setValue(value)</key>.</li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Working with Form Control and Form Group</h3>
+          <ul>
+            <li>import <key>ReactiveFormsModule</key></li>
+            <li>
+              declare FormGroup and FormControl and bind it with directives:
+            </li>
+            <ul>
+              <li><key>formControlName</key> to map controls</li>
+              <li><key>formGroupName</key> to map forms group</li>
+              <li>
+                <key>formGroup</key> to bind the form (top-level group) to an
+                <key>FormGroup</key> instance
+              </li>
+              <li>
+                <key>formControl</key> to bind the control to an
+                <key>FormControl</key>
+                instance
+              </li>
+            </ul>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Working with Forms - Example</h3>
+
+          <ul>
+            <li>
+              step1: declaration in component:
+              <pre style="width:700px"><code>  @Component({ ... })
+  export class UserComponent {
+    name = new FormControl('default val');
+  }</code></pre>
+            </li>
+            <li>
+              step2: binding in HTML using directive
+              <pre style="width:700px"><code>  &#x3C;label&#x3E;
+    Name:
+    &#x3C;input type=&#x22;text&#x22; [formControl]=&#x22;name&#x22;&#x3E;
+  &#x3C;/label&#x3E;</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Access to values</h3>
+          <ul>
+            <li>
+              reactive access using valueChanges:
+              <pre><code> this.name.valueChanges.subscribe(value => {
+    console.log(value);
+  });</code></pre>
+            </li>
+            <li>
+              static access with value property:
+              <pre><code> console.log(this.name.value);</code></pre>
+            </li>
+            <li>
+              static setter with setValue(value) function:
+              <pre><code> this.name.setValue('John');</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Saving / Resetting Data</h3>
+          <ul>
+            <li>utilisation of <key>submit</key> button</li>
+            <li>
+              no separate event listener for submit
+            </li>
+            <li>
+              to reset the form we need to call the <key>reset()</key> function:
+              <ul>
+                <li>
+                  all field will be reset to given state,
+                </li>
+                <li>
+                  <key>valid</key>, <key>touched</key> and
+                  <key>dirty</key> properties will be set to false
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Saving / Resetting Data - Example</h3>
+          <ul>
+            <li>
+              step1: handler in component:
+              <pre style="width:750px;"><code> onSubmit() {
+    if (this.myform.valid) {
+      console.log('Form Submitted!');
+      this.api.saveData(this.myForm.value);
+      this.myform.reset();
+    }
+  }</code></pre>
+            </li>
+            <li>
+              step2: binding in HTML:
+              <pre
+                style="width:750px;"
+              ><code> &#x3C;form [formGroup]=&#x22;profileForm&#x22; (ngSubmit)=&#x22;onSubmit()&#x22;&#x3E;
+    &#x3C;button 
+      type=&#x22;submit&#x22; 
+      [disabled]="!profileForm.valid" &#x3E;
+    SEND&#x3C;/button&#x3E;
+  &#x3C;/form&#x3E;</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Form Builder - make it readable</h3>
+          <ul>
+            <li>injectable helper service – <key>FormBuilder</key>,</li>
+            <li>use it to create <key>AbstractControls</key>,</li>
+            <li>
+              shorter and simpler way to create forms.
+            </li>
+          </ul>
+          <pre style="width:800px"><code>  @Component({ ... })
+  export class UserSettingsComponent {
+    constructor(fb: FormBuilder)
+    personalData = this.fb.group({
+      firstName: ['John'],
+      lastName: ['Doe', Validators.required]
+    });
+  }</code></pre>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Form Validators</h3>
+          <ul>
+            <li>
+              rules which an input control has to follow,
+            </li>
+            <li>
+              registering validators by defining them with
+              <key>AbstractControl</key>,
+            </li>
+            <li>
+              recommended to add <key>novalidate</key> to form element -> it
+              turns off browser validation.
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Form Validators</h3>
+          <ul>
+            <li>
+              two types of validators: sync / async validators,
+            </li>
+            <li>
+              both return either <key>ValidationErrors</key> or <key>null</key>,
+            </li>
+            <li>
+              async validator uses Observable or Promise,
+            </li>
+            <li>
+              Built-in validators:
+            </li>
+          </ul>
+          <pre style="width:900px"><code> export declare class Validators {
+    static min(min: number): ValidatorFn;
+    static max(max: number): ValidatorFn;
+    static required(control: AbstractControl): ValidationErrors | null;
+    static requiredTrue(control: AbstractControl): ValidationErrors | null;
+    static email(control: AbstractControl): ValidationErrors | null;
+    static minLength(minLength: number): ValidatorFn;
+    static maxLength(maxLength: number): ValidatorFn;
+    static pattern(pattern: string | RegExp): ValidatorFn;
+    static nullValidator(control: AbstractControl): ValidationErrors | null;
+  }</code></pre>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Form Validators - Example</h3>
+          <ul>
+            <li>
+              step1: implement validator:
+              <pre
+                style="width:800px"
+              ><code>  export function biggerThan2(control: AbstractControl): ValidationErrors | null {
+    return control.value>2 ? {biggerThan2: 'Value too big: 2' } : null;
+  }
+  export function forbiddenValidator(forbidden: string[]): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return forbidden.contains(control.value) ?
+        {forbidden: 'You cant use this value' } : null;
+    };
+  }</code></pre>
+            </li>
+            <li>
+              step2: add vaidator to control
+              <pre style="width:800px"><code> this.loginForm: FormGroup;
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      'login': ['', [forbiddenValidator(['login'])],
+      'age': ['', [Validators.required, biggerThan2]]
+    });
+  }</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Control state</h3>
+          <ul>
+            <li>
+              accessible with control reference,
+            </li>
+            <li>
+              reflected in class attribute:
+            </li>
+          </ul>
+          <table>
+            <tr>
+              <th rowspan="2">State</th>
+              <th colspan="2">Class name</th>
+            </tr>
+            <tr>
+              <th>True</th>
+              <th>False</th>
+            </tr>
+            <tr>
+              <td>The control has been visited</td>
+              <td>ng-touched</td>
+              <td>ng-untouched</td>
+            </tr>
+            <tr>
+              <td>The control's value has changed</td>
+              <td>ng-dirty</td>
+              <td>ng-pristine</td>
+            </tr>
+            <tr>
+              <td>The control's value is valid</td>
+              <td>ng-valid</td>
+              <td>ng-invalid</td>
+            </tr>
+          </table>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">ngClass directive</h3>
+          <ul>
+            <li>
+              allows to dynamic applies classes to an html element
+              <pre
+                style="width:800px"
+              ><code> &#x3C;div class=&#x22;form-group&#x22; 
+  [ngClass]="{
+  wrong: 
+    myform.controls.email.invalid && myform.controls.email.dirty, 
+  correct: 
+    myform.controls.email.valid && myform.controls.email.dirty 
+  }"
+  &#x3E;</code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Safe navigation operator (a.k.a Elvis operator)</h3>
+          <ul>
+            <li>
+              special char to use in HTML: <key>?</key>,
+            </li>
+            <li>
+              if form.controls.email was null or undefined it would not try to
+              call form.controls.email.valid:
+              <pre
+                style="width:800px"
+              ><code> {{form.controls.email?.valid}}</code></pre>
+            </li>
+          </ul>
+          <code> 
+"Only try to call the property on the right of ? if the property on the left of ? is not null"  
+          </code>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Pipes</h3>
+          <ul>
+            <li>
+              used to transform data,
+            </li>
+            <li>
+              we can chain pipes together like in unix systems,
+            </li>
+            <li>
+              two types of pipes: Pure / Unpure,
+            </li>
+            <li>
+              built-ins:
+              <pre style="width:800px"><code>
+  currency    //{{123 | currency:'PLN'}}
+  date        //{{mydate | date:'shortTime'}}
+  decimal     //{{12.2122 | number:'3.1-2'}}
+  json        //{{myobject | json}}
+  lowercase   //{{'Aaaa' | lowercase }}
+  uppercase   //{{'Aaaa' | uppercase }}
+  percent     //{{123 | percent :'3.1-2' }}
+  slice       //{{[1,2,3,4,5] | slice :'1:3' }}
+  async       //{{myObservable | async }}
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Async pipe</h3>
+          <ul>
+            <li>
+              allows you to remove <key>subscribe()</key> from code,
+            </li>
+            <li>
+              works with promises and observables,
+            </li>
+            <li>
+              resolves observable in HTML:
+              <ul>
+                <li>
+                  auto subscribe/unsubscribe,
+                </li>
+                <li>
+                  no need for additional binding in the component.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <pre
+            style="width:800px"
+          ><code>  &#x3C;div *ngIf="orders$ | async as orders";&#x3E;
+    &#x3C;div *ngFor=";let order of orders";&#x3E;
+      &#x3C;span&#x3E;
+        {{ order.id }} {{ order.details }}
+      &#x3C;/span&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/div&#x3E;</code></pre>
         </section>
         <section>
           <h2>
@@ -43,7 +469,10 @@
       Reveal.initialize({
         history: true,
         dependencies: [
-          { src: "../reveal.js-3.8.0/plugin/highlight/highlight.js", async: true },
+          {
+            src: "../reveal.js-3.8.0/plugin/highlight/highlight.js",
+            async: true
+          },
           { src: "../reveal.js-3.8.0/plugin/search/search.js", async: true },
           { src: "../reveal.js-3.8.0/plugin/zoom-js/zoom.js", async: true },
           { src: "../reveal.js-3.8.0/plugin/notes/notes.js", async: true }

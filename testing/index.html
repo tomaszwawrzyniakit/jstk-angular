@@ -5,9 +5,15 @@
     <meta charset="utf-8" />
     <meta name="author" content=" " />
     <meta name="description" content="Testing" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../reveal.js-3.8.0/css/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-3.8.0/css/theme/white.css" />
     <link rel="stylesheet" href="../common/css/common.css" />
@@ -27,9 +33,597 @@
   <body>
     <div class="reveal white">
       <div class="slides">
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Testing</h2>
           <p class="credits">by twawrzyn</p>
+        </section>
+
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Unit Tests in Angular</h3>
+          <ul>
+            <li>
+              testing small isolated pieces of code,
+            </li>
+            <li>
+              uses jasmine testing framework,
+            </li>
+            <li>
+              BDD - Behavior-driven development.
+            </li>
+          </ul>
+          <pre style="width:750px;"><code>  describe('Hello world', () => { 
+    it('says hello', () => { 
+      expect(helloWorld()).toEqual('Hello world!'); 
+    });
+  });</code></pre>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Test flow</h3>
+          <ul>
+            <li>
+              <key> beforeAll</key> - called once, before all the specs in
+              describe test suite are run.
+            </li>
+            <li>
+              <key> afterAll</key> - called once after all the specs in a test
+              suite are finished.
+            </li>
+            <li>
+              <key> beforeEach</key> - called before each test specification, it
+              function, has been run.
+            </li>
+            <li>
+              <key> afterEach</key> - called after each test specification has
+              been run.
+            </li>
+          </ul>
+        </section>
+
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Disabled and focused tests</h3>
+          <ul>
+            <li>
+              use <key>xdescribe</key> or <key>xit</key> to disabled an test:
+              <pre><code>  xdescribe('Hello world', () => { 
+    xit('says hello', () => { 
+      expect(sayHello())
+      .toEqual('Hello world!');
+    });
+  });</code></pre>
+            </li>
+            <li>
+              use <key>fdescribe</key> or <key>fit</key> to focus on an test:
+              <pre><code>  fdescribe('Hello world', () => { 
+    fit('says hello', () => { 
+        expect(sayHello())
+        .toEqual('Hello world!');
+    });
+  });</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Mocks & Spies</h3>
+            <ul>
+              <li>
+                testing with the real instance:
+                <pre><code>const service = new AuthService();</code></pre>
+              </li>
+              <li>
+                mock service with fake class:
+                <pre><code>  class MockAuthService{
+      isAuthenticated() {
+        return false;
+      }
+    }</code></pre>
+              </li>
+              <li>
+                spy a method on a real instance:
+                <pre><code>spyOn(service, 'isAuthenticated')
+    .and.returnValue(false);</code></pre>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Mocks & Spies</h3>
+            <ul>
+              <li>
+                create a spy object with <key>createSpyObj</key>:
+                <pre><code>jasmine.createSpyObj('mockAuthService', 
+      ['isAuthenticated'])</code></pre>
+              </li>
+              <li>
+                create a spy function with <key>createSpy</key>:
+                <pre><code>jasmine.createSpy('isAuthenticated')</code></pre>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">How to use spies ?</h3>
+          <ul>
+            <li>
+              verify that function was called:
+              <pre><code>expect(obj.method).toHaveBeenCalled()</code></pre>
+            </li>
+            <li>
+              verify that function was called with params:
+              <pre><code>expect(obj.method).toHaveBeenCalledWith('param1', 1)</code></pre>
+            </li>
+            <li>
+              verify how many times it was called:
+              <pre><code>obj.method.calls.count()</code></pre>
+            </li>
+            <li>
+              check the lastest arguments:
+              <pre><code>obj.method.calls.mostRecent().args</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Angular Test Bed</h3>
+          <ul>
+            <li>
+              angulars testing framework,
+            </li>
+            <li>
+              allows to create isolated tests and test behaviors that depend on
+              the Angular,
+            </li>
+            <li>
+              <key>TestBed</key> creates testing module that can instantiate
+              components and perform DI.
+            </li>
+          </ul>
+          <pre><code> describe('Component: Login', () => {
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        declarations: [LoginComponent],
+        imports: [FormsModule],
+        providers: [AuthService]
+      });
+    });
+  });</code></pre>
+        </section>
+
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Mocking with Testbed</h3>
+          <ul>
+            <li>
+              existing class:
+              <pre><code>TestBed.configureTestingModule({
+    providers: [ { 
+      provide: RestApiService, 
+      useClass: MockRestApiTestService 
+    } ] 
+  });</code></pre>
+            </li>
+            <li>
+              existing instance:
+              <pre><code>const mockService = jasmine.createSpyObj(SearchService', ['search'])
+  TestBed.configureTestingModule({
+    providers: [ { 
+      provide: SearchService,
+      useValue: mockSearchService 
+    } ]
+  });</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
+          <h3 class="white">Angular TestBed - but when?</h3>
+          <ul>
+            <li>
+              use TestBed for:
+              <ul>
+                <li>
+                  testing interactions <key>directive</key> <>
+                  <key>components</key>,
+                </li>
+                <li>
+                  testing change detection,
+                </li>
+                <li>
+                  test and use DI,
+                </li>
+                <li>
+                  testing interaction with callbacks especially clicks and input
+                  fields,
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Asynchronous Test</h3>
+            <ul>
+              <li>
+                Jasmines specific:
+                <ul>
+                  <li>
+                    <key>done</key> function - we will trigger this function
+                    when the test is completed
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Angular specific:
+                <ul>
+                  <li>
+                    <key>async</key> and <key>whenStable</key>
+                    <ul>
+                      <li>
+                        <key>whenStable()</key> triggered when all pending
+                        promises have been resolved
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <key>fakeAsync</key> and <key>tick</key>
+                    <ul>
+                      <li>
+                        <key>tick()</key> waiting for all promises before tick
+                        function and travel in to the future
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Asynchronous Test</h3>
+            <h4 class="white"><key>done</key> function</h4>
+            <pre><code> it('should change login button text', 
+  (done: DoneFn) => { 
+    fixture.detectChanges();
+    expect(el.nativeElement.textContent).toBe('Login');
+    let isAuthSpy = spyOn(authService,'isAuthenticated')
+      .and.returnValue(of(true));
+
+    component.ngOnInit();
+
+    isAuthSpy.calls.mostRecent().returnValue.then(() => { 
+      fixture.detectChanges();
+      expect(el.nativeElement.textContent).toBe('Logout');
+      done(); 
+    });
+  });</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Asynchronous Test</h3>
+            <h4 class="white"><key>async</key> and <key>whenStable</key></h4>
+            <pre><code> it('should change login button text ', 
+  async(() => { 
+    fixture.detectChanges();
+    expect(el.nativeElement.textContent).toBe('Login');
+    spyOn(authService, 'isAuthenticated')
+      .and.returnValue(of(true));
+
+    fixture.whenStable().then(() => { 
+      fixture.detectChanges();
+      expect(el.nativeElement.textContent).toBe('Logout');
+    });
+    component.ngOnInit();
+  }));</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Asynchronous Test</h3>
+            <h4 class="white"><key>fakeAsync</key> and <key>tick</key></h4>
+            <pre><code> it('should change login button text', 
+  fakeAsync(() => {
+    fixture.detectChanges();
+    expect(el.nativeElement.textContent).toBe('Login');
+    spyOn(authService, 'isAuthenticated')
+      .and.returnValue(of(true));
+
+    component.ngOnInit();
+
+    tick(); 
+    fixture.detectChanges();
+    expect(el.nativeElement.textContent).toBe('Logout');
+  }));</code></pre>
+          </section>
+        </section>
+        <section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h2 class="white">How to test?</h2>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing classes & pipes</h3>
+            <ul>
+              <li>
+                everything in Angular is an instance of a class,
+              </li>
+              <li>
+                test everything in js-way:
+              </li>
+            </ul>
+            <pre><code>  describe('Service: Auth', () => {
+    let service: AuthService;
+    beforeEach(() => { 
+      service = new AuthService();
+    });
+    afterEach(() => { 
+      service = null;
+      localStorage.removeItem('token');
+    });
+    it('should return false if there is no token', () => {
+      expect(service.isAuthenticated()).toBeFalsy();
+    });
+  });</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Dependency injection</h3>
+            <ul>
+              <li>
+                inject function wraps the test specs function,
+              </li>
+              <li>
+                by default it use TestBed injector,
+              </li>
+              <li>
+                to switch to Component Injector we need to use debugElement.
+              </li>
+            </ul>
+            <pre><code> //fixture.debugElement.injector.get(AuthService);
+  it('should inject AuthService', inject([AuthService], (auth: AuthService) => {
+    expect(auth).toBe(mockedAuthService);
+  }));
+
+  //Dependency injection is also available direct in TestBed:
+  authService = TestBed.get(AuthService);</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing components</h3>
+            <ul>
+              <li>
+                test <key>@Input</key> properties using simple assignment and
+                then trigger Change detection:
+                <pre><code> it('should disables the submit button', () => {
+    component.enabled = false;
+    fixture.detectChanges();
+    expect(submitEl.nativeElement.disabled).toBeTruthy();
+  });</code></pre>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing components</h3>
+            <ul>
+              <li>
+                Test <key>@Output</key> callbacks using subscribe function (it
+                shuld be an <key>EventEmitter</key>):
+                <pre><code> it('should emit user data after login',
+fakeAsync(() => {
+  let user: User;
+  component.loggedIn.subscribe(data => user = data);
+
+  tick();
+
+  expect(user.email).toBe('jstk@capgemini.com');
+  expect(user.password).toBe('qwerty');
+})); </code></pre>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing components</h3>
+            <h4 class="white">Component References</h4>
+            <pre><code> describe('Component: Login', () => {
+    let authService: AuthService;
+    let component: LoginComponent;
+    let fixture: ComponentFixture&#x3C;LoginComponent&#x3E;; 
+    let el: DebugElement; 
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        import: [FormsModule],
+        declarations: [LoginComponent],
+        providers: [AuthService]
+      });
+      fixture = TestBed.createComponent(LoginComponent); 
+      component = fixture.componentInstance; 
+      authService = TestBed.get(AuthService); 
+      el = fixture.debugElement.query(By.css('button')); 
+    });
+  });</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing components</h3>
+            <h4 class="white">Hint: Detect changes</h4>
+            <ul>
+              <li>
+                when Angular loads components in TestBed
+                <key>no change detection</key> has been triggered
+              </li>
+              <li>
+                <key>fixture</key> is a wrapper for our components environment
+                so we can control things like change detection
+              </li>
+              <li>
+                trigger change detection by using
+                <key>fixture.detectChanges()</key>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing components</h3>
+            <h4 class="white">Hint: lifeCycle hooks</h4>
+            <ul>
+              <li>
+                Angular won't trigger <key>ngOnInit</key>,
+                <key>ngOnDestroy</key> in this mode, we need to do it by hand
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing HttpClient</h3>
+            <ul>
+              <li>
+                mMultiple helpers in <key>HttpClientTestingModule</key>
+                <ul>
+                  <li><key>expectOne()</key> allows to check one request</li>
+                  <li>
+                    <key>match()</key> allows to check an array of requests
+                  </li>
+                </ul>
+              </li>
+              <li>
+                mocked request can return data with <key>flush()</key> function
+                or raise an exception with <key>error()</key> function
+              </li>
+              <li>
+                At the end use <key>verify()</key> to check all other pending
+                requests
+              </li>
+            </ul>
+          </section>
+
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing HttpClient</h3>
+            <pre><code> it('should test HttpClient.get', async(() => {
+  const responseData: Data = {name: 'Alicja'};
+  httpClient.get&#x3C;Data&#x3E;(testUrl)
+      .subscribe(data => expect(data).toEqual(responseData));
+  const reqs = httpTestingController.match('/data');
+  expect(reqs[0].request.method).toEqual('GET');
+  reqs[0].flush(responseData);
+  httpTestingController.verify();
+}));</code></pre>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing routing</h3>
+            <ul>
+              <li>
+                use <key>RouterTestingModule.withRoutes()</key>,
+              </li>
+              <li>
+                need to create AppComponent (with router-outlet) and then call
+              <key>router.initialNavigation()</key>,
+              </li>
+              <li>
+                navigate with <key>navigate()</key> function but verify path with
+              <key>location.path()</key>
+              </li>
+            </ul>
+            <pre><code> it('should redirects to /dashboard for empty route', fakeAsync(() => { 
+    router.navigate(['']); 
+    tick(); 
+    expect(location.path()).toBe('/dashboard'); 
+  }));</code></pre>
+          </section>
+
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h3 class="white">Testing classes & pipes</h3>
+            <ul>
+              <li>
+                everything in Angular is an instance of a class,
+              </li>
+              <li>
+                we can test everything in js-way:
+              </li>
+            </ul>
+            <pre><code>  describe('Service: Auth', () => {
+    let service: AuthService;
+    beforeEach(() => { 
+        service = new AuthService();
+    });
+    afterEach(() => { 
+        service = null;
+        localStorage.removeItem('token');
+    });
+      it('should return false if there is no token', () => {
+        expect(service.isAuthenticated()).toBeFalsy();
+    });
+  });</code></pre>
+          </section>
+        </section>
+        <section>
+          <h2>
+            <a href="../index.html#/1">Main page</a>
+          </h2>
         </section>
       </div>
     </div>
@@ -38,7 +632,10 @@
       Reveal.initialize({
         history: true,
         dependencies: [
-          { src: "../reveal.js-3.8.0/plugin/highlight/highlight.js", async: true },
+          {
+            src: "../reveal.js-3.8.0/plugin/highlight/highlight.js",
+            async: true
+          },
           { src: "../reveal.js-3.8.0/plugin/search/search.js", async: true },
           { src: "../reveal.js-3.8.0/plugin/zoom-js/zoom.js", async: true },
           { src: "../reveal.js-3.8.0/plugin/notes/notes.js", async: true }

@@ -211,10 +211,15 @@ html body {
   color: var(--cap-white);
 }
 
-.reveal.white, .reveal.white  h2 .title  {
-    color: white;      
+.reveal.white,
+.reveal.white h2 .title {
+  color: white;
 }
 
-.reveal pre code{
+.reveal pre code {
   max-height: 550px;
+}
+.reveal key {
+  font-weight: 600;
+  color: var(--cap-green);
 }
