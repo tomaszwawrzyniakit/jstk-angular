@@ -120,7 +120,7 @@
           initial-scale=1&#x22;&#x3E;
     &#x3C;/head&#x3E;
     &#x3C;body&#x3E;
-        &#x3C;app-root&#x3E;&#x3C;/app-root&#x3E;
+        &#x3C;app-root&#x3E;Loading...&#x3C;/app-root&#x3E;
     &#x3C;/body&#x3E;
   &#x3C;/html&#x3E;</code></pre>
           </section>
@@ -135,6 +135,8 @@
             class="no-background no-border no-margin no-shadow"
             src="./img/architecture.png"
           />
+          <small
+          >Source:https://www.javatpoint.com/angular-7-architecture</small>
         </section>
 
         <section>
@@ -144,14 +146,14 @@
           >
             <h2 class="white">Components</h2>
             <ul>
-              <li>controls view</li>
-              <li>without business logic</li>
-              <li>defines metadata: selector, styles, body</li>
+              <li>controls view,</li>
+              <li>no business logic,</li>
+              <li>defines metadata: selector, styles, body,</li>
               <li>
-                communication
+                communication:
                 <ul>
-                  <li>parent -> child – passing via properties (binding)</li>
-                  <li>child -> parent – emits angular events</li>
+                  <li>parent -> child – passing via properties (binding),</li>
+                  <li>child -> parent – emits angular events.</li>
                 </ul>
               </li>
             </ul>
@@ -255,9 +257,10 @@
             <h3 class="white">Most used</h3>
             <ul>
               <li>ngOnInit() - just after initializing @Input/@Output</li>
-              <li>ngDoCheck() - called during each change detection</li>
-              <li>ngOnChanges() - respond when ANgular (re)sets Input properties</li>
               <li>ngOnDestroy() - called just before Angular destroys component</li>
+            
+              <small><li>ngDoCheck() - called during each change detection</li></small>
+              <small><li>ngOnChanges() - respond when Angular (re)sets Input properties</li></small>
             </ul>
           </section>
         </section>
@@ -270,7 +273,7 @@
           <ul>
             <li>allows to transform data, mainly in html,</li>
             <li>chaining with | (linux style),</li>
-            <li>supports memoization (pure pipes),</li>
+            <li>supports memoization (pure pipes).</li>
           </ul>
           <pre><code><!-- Default format: output 'Jun 15, 2018' -->
 &#x3C;p&#x3E;Today is {{today | date}}&#x3C;/p&#x3E;
@@ -284,6 +287,7 @@
             << Check more built-in pipes >></a
           >
         </section>
+        <section>
         <section
           data-transition="slide"
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
@@ -296,11 +300,11 @@
             <li>
               build-in directives:
               <ul>
-                <li>*ngIf</li>
-                <li>*ngFor</li>
-                <li>ngSwitch & *ngSwitchCase</li>
-                <li>ngModel</li>
-                <li>ngClass</li>
+                <li>*ngIf,</li>
+                <li>*ngFor,</li>
+                <li>ngSwitch & *ngSwitchCase,</li>
+                <li>ngModel,</li>
+                <li>ngClass.</li>
               </ul>
             </li>
           </ul>
@@ -321,6 +325,7 @@
 &#x3C;btn [ngClass]="{disabled: isDisabled(),error:hasError()}"&#x3E;
 &#x3C;/btn&#x3E;</code></pre>
         </section>
+      </section>
         <section
           data-transition="slide"
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
@@ -330,7 +335,7 @@
             <li>reusability and modularity of existing code,</li>
             <li>contains main application logic,</li>
             <li>obtained from dependency injection,</li>
-            <li>must be provided in root or module,</li>
+            <li>must be provided in root or module.</li>
           </ul>
           <pre><code>  import { Injectable } from '@angular/core';
   import { StarterService } from './starter.service';
@@ -384,11 +389,11 @@
           >
             <h2 class="white">Modules</h2>
             <ul>
-              <li>imports – external modules</li>
-              <li>exports – exported elements</li>
-              <li>declarations - components and pipes (for template proposes)</li>
-              <li>providers – injectables (services, guards, pipes)</li>
-              <li>bootstrap – starting point for application</li>
+              <li>imports – external modules,</li>
+              <li>exports – exported elements,</li>
+              <li>declarations - components and pipes (for template proposes),</li>
+              <li>providers – injectables (services, guards, pipes),</li>
+              <li>bootstrap – starting point for application.</li>
             </ul>
           </section>
         </section>
