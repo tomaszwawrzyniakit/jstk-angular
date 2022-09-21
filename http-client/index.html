@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -46,16 +51,20 @@
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
         >
           <h2 class="white">HttpClient</h2>
-          <pre><code>  ngOnInit(){
-    this.http.get(configUr1)
-      .subscribe(
-        response => this.handleResponse(response),
-        error => this .handleError(error)
-      );
-    this.http.post(configUr1, {});
-    this.http.delete(configUr1);
-    this.http.put(configUrl,{});
-  }</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              ngOnInit(){
+                this.http.get(configUr1)
+                  .subscribe(
+                    response => this.handleResponse(response),
+                    error => this .handleError(error)
+                  );
+                this.http.post(configUr1, {});
+                this.http.delete(configUr1);
+                this.http.put(configUrl,{});
+              }
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -63,14 +72,26 @@
         >
           <h3 class="white">Mocking REST server</h3>
           Installation
-          <pre><code>  npm install json-server --save-dev</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              npm install json-server --save-dev
+            </code>
+          </pre>
           Starting script
-          <pre><code>  "scripts": {
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "api": "json-server server/db.json --watch"
-  },</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              "scripts": {
+                "start": "ng serve --proxy-config proxy.conf.json",
+                "api": "json-server server/db.json --watch"
+              },
+            </code>
+          </pre>
           Starting
-          <pre><code>  npm run-script api</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              npm run-script api
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -82,15 +103,19 @@
             <li>gives possibilities to implement client-site independently,</li>
             <li>
               simple configuration using json file:
-              <pre><code>  {
-    "/api": {
-      "target": "http://localhost:3000/",
-      "pathRewrite": {"/api": ""},
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
-    }
-  }</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                  {
+                    "/api": {
+                      "target": "http://localhost:3000/",
+                      "pathRewrite": {"/api": ""},
+                      "secure": false,
+                      "changeOrigin": true,
+                      "logLevel": "debug"
+                    }
+                  }
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -101,27 +126,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

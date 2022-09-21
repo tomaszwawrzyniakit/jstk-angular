@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -36,21 +41,19 @@
         >
           <h3 class="white">Unit Tests in Angular</h3>
           <ul>
-            <li>
-              testing small isolated pieces of code,
-            </li>
-            <li>
-              uses jasmine testing framework,
-            </li>
-            <li>
-              BDD - Behavior-driven development.
-            </li>
+            <li>testing small isolated pieces of code,</li>
+            <li>uses jasmine testing framework,</li>
+            <li>BDD - Behavior-driven development.</li>
           </ul>
-          <pre style="width:750px;"><code>  describe('Hello world', () => { 
-    it('says hello', () => { 
-      expect(helloWorld()).toEqual('Hello world!'); 
-    });
-  });</code></pre>
+          <pre data-id="code-animation" style="width: 750px">
+            <code class="hljs" data-trim data-line-numbers> 
+              describe('Hello world', () => { 
+                it('says hello', () => { 
+                  expect(helloWorld()).toEqual('Hello world!'); 
+                });
+              });
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -85,21 +88,29 @@
           <ul>
             <li>
               use <key>xdescribe</key> or <key>xit</key> to disabled an test:
-              <pre><code>  xdescribe('Hello world', () => { 
-    xit('says hello', () => { 
-      expect(sayHello())
-      .toEqual('Hello world!');
-    });
-  });</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                  xdescribe('Hello world', () => { 
+                    xit('says hello', () => { 
+                      expect(sayHello())
+                      .toEqual('Hello world!');
+                    });
+                  });
+                </code>
+              </pre>
             </li>
             <li>
               use <key>fdescribe</key> or <key>fit</key> to focus on an test:
-              <pre><code>  fdescribe('Hello world', () => { 
-    fit('says hello', () => { 
-        expect(sayHello())
-        .toEqual('Hello world!');
-    });
-  });</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                  fdescribe('Hello world', () => { 
+                    fit('says hello', () => { 
+                        expect(sayHello())
+                        .toEqual('Hello world!');
+                    });
+                  });
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -112,20 +123,32 @@
             <ul>
               <li>
                 testing with the real instance:
-                <pre><code>const service = new AuthService();</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  const service = new AuthService();
+                  </code>
+                </pre>
               </li>
               <li>
                 mock service with fake class:
-                <pre><code>  class MockAuthService{
-      isAuthenticated() {
-        return false;
-      }
-    }</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                    class MockAuthService{
+                        isAuthenticated() {
+                          return false;
+                        }
+                      }
+                  </code>
+                </pre>
               </li>
               <li>
                 spy a method on a real instance:
-                <pre><code>spyOn(service, 'isAuthenticated')
-    .and.returnValue(false);</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  spyOn(service, 'isAuthenticated')
+                      .and.returnValue(false);
+                  </code>
+                </pre>
               </li>
             </ul>
           </section>
@@ -137,12 +160,20 @@
             <ul>
               <li>
                 create a spy object with <key>createSpyObj</key>:
-                <pre><code>jasmine.createSpyObj('mockAuthService', 
-      ['isAuthenticated'])</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  jasmine.createSpyObj('mockAuthService', 
+                        ['isAuthenticated'])
+                  </code>
+                </pre>
               </li>
               <li>
                 create a spy function with <key>createSpy</key>:
-                <pre><code>jasmine.createSpy('isAuthenticated')</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  jasmine.createSpy('isAuthenticated')
+                  </code>
+                </pre>
               </li>
             </ul>
           </section>
@@ -155,19 +186,35 @@
           <ul>
             <li>
               verify that function was called:
-              <pre><code>expect(obj.method).toHaveBeenCalled()</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                expect(obj.method).toHaveBeenCalled()
+                </code>
+              </pre>
             </li>
             <li>
               verify that function was called with params:
-              <pre><code>expect(obj.method).toHaveBeenCalledWith('param1', 1)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                expect(obj.method).toHaveBeenCalledWith('param1', 1)
+                </code>
+              </pre>
             </li>
             <li>
               verify how many times it was called:
-              <pre><code>obj.method.calls.count()</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                obj.method.calls.count()
+                </code>
+              </pre>
             </li>
             <li>
               check the lastest arguments:
-              <pre><code>obj.method.calls.mostRecent().args</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                obj.method.calls.mostRecent().args
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -177,9 +224,7 @@
         >
           <h3 class="white">Angular Test Bed</h3>
           <ul>
-            <li>
-              angulars testing framework,
-            </li>
+            <li>angulars testing framework,</li>
             <li>
               allows to create isolated tests and test behaviors that depend on
               the Angular,
@@ -189,15 +234,19 @@
               components and perform DI.
             </li>
           </ul>
-          <pre><code> describe('Component: Login', () => {
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        declarations: [LoginComponent],
-        imports: [FormsModule],
-        providers: [AuthService]
-      });
-    });
-  });</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+            describe('Component: Login', () => {
+                beforeEach(() => {
+                  TestBed.configureTestingModule({
+                    declarations: [LoginComponent],
+                    imports: [FormsModule],
+                    providers: [AuthService]
+                  });
+                });
+              });
+            </code>
+          </pre>
         </section>
 
         <section
@@ -208,22 +257,30 @@
           <ul>
             <li>
               existing class:
-              <pre><code>TestBed.configureTestingModule({
-    providers: [ { 
-      provide: RestApiService, 
-      useClass: MockRestApiTestService 
-    } ] 
-  });</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                TestBed.configureTestingModule({
+                    providers: [ { 
+                      provide: RestApiService, 
+                      useClass: MockRestApiTestService 
+                    } ] 
+                  });
+                </code>
+              </pre>
             </li>
             <li>
               existing instance:
-              <pre><code>const mockService = jasmine.createSpyObj(SearchService', ['search'])
-  TestBed.configureTestingModule({
-    providers: [ { 
-      provide: SearchService,
-      useValue: mockSearchService 
-    } ]
-  });</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                const mockService = jasmine.createSpyObj(SearchService', ['search'])
+                  TestBed.configureTestingModule({
+                    providers: [ { 
+                      provide: SearchService,
+                      useValue: mockSearchService 
+                    } ]
+                  });
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -240,12 +297,8 @@
                   testing interactions <key>directive</key> <>
                   <key>components</key>,
                 </li>
-                <li>
-                  testing change detection,
-                </li>
-                <li>
-                  test and use DI,
-                </li>
+                <li>testing change detection,</li>
+                <li>test and use DI,</li>
                 <li>
                   testing interaction with callbacks especially clicks and input
                   fields,
@@ -303,21 +356,25 @@
           >
             <h3 class="white">Asynchronous Test</h3>
             <h4 class="white"><key>done</key> function</h4>
-            <pre><code> it('should change login button text', 
-  (done: DoneFn) => { 
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent).toBe('Login');
-    let isAuthSpy = spyOn(authService,'isAuthenticated')
-      .and.returnValue(of(true));
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              it('should change login button text', 
+                (done: DoneFn) => { 
+                  fixture.detectChanges();
+                  expect(el.nativeElement.textContent).toBe('Login');
+                  let isAuthSpy = spyOn(authService,'isAuthenticated')
+                    .and.returnValue(of(true));
 
-    component.ngOnInit();
+                  component.ngOnInit();
 
-    isAuthSpy.calls.mostRecent().returnValue.then(() => { 
-      fixture.detectChanges();
-      expect(el.nativeElement.textContent).toBe('Logout');
-      done(); 
-    });
-  });</code></pre>
+                  isAuthSpy.calls.mostRecent().returnValue.then(() => { 
+                    fixture.detectChanges();
+                    expect(el.nativeElement.textContent).toBe('Logout');
+                    done(); 
+                  });
+                });
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -325,19 +382,23 @@
           >
             <h3 class="white">Asynchronous Test</h3>
             <h4 class="white"><key>async</key> and <key>whenStable</key></h4>
-            <pre><code> it('should change login button text ', 
-  async(() => { 
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent).toBe('Login');
-    spyOn(authService, 'isAuthenticated')
-      .and.returnValue(of(true));
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              it('should change login button text ', 
+                async(() => { 
+                  fixture.detectChanges();
+                  expect(el.nativeElement.textContent).toBe('Login');
+                  spyOn(authService, 'isAuthenticated')
+                    .and.returnValue(of(true));
 
-    fixture.whenStable().then(() => { 
-      fixture.detectChanges();
-      expect(el.nativeElement.textContent).toBe('Logout');
-    });
-    component.ngOnInit();
-  }));</code></pre>
+                  fixture.whenStable().then(() => { 
+                    fixture.detectChanges();
+                    expect(el.nativeElement.textContent).toBe('Logout');
+                  });
+                  component.ngOnInit();
+                }));
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -345,19 +406,23 @@
           >
             <h3 class="white">Asynchronous Test</h3>
             <h4 class="white"><key>fakeAsync</key> and <key>tick</key></h4>
-            <pre><code> it('should change login button text', 
-  fakeAsync(() => {
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent).toBe('Login');
-    spyOn(authService, 'isAuthenticated')
-      .and.returnValue(of(true));
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              it('should change login button text', 
+                fakeAsync(() => {
+                  fixture.detectChanges();
+                  expect(el.nativeElement.textContent).toBe('Login');
+                  spyOn(authService, 'isAuthenticated')
+                    .and.returnValue(of(true));
 
-    component.ngOnInit();
+                  component.ngOnInit();
 
-    tick(); 
-    fixture.detectChanges();
-    expect(el.nativeElement.textContent).toBe('Logout');
-  }));</code></pre>
+                  tick(); 
+                  fixture.detectChanges();
+                  expect(el.nativeElement.textContent).toBe('Logout');
+                }));
+              </code>
+            </pre>
           </section>
         </section>
         <section>
@@ -373,26 +438,26 @@
           >
             <h3 class="white">Testing classes & pipes</h3>
             <ul>
-              <li>
-                everything in Angular is an instance of a class,
-              </li>
-              <li>
-                test everything in js-way:
-              </li>
+              <li>everything in Angular is an instance of a class,</li>
+              <li>test everything in js-way:</li>
             </ul>
-            <pre><code>  describe('Service: Auth', () => {
-    let service: AuthService;
-    beforeEach(() => { 
-      service = new AuthService();
-    });
-    afterEach(() => { 
-      service = null;
-      localStorage.removeItem('token');
-    });
-    it('should return false if there is no token', () => {
-      expect(service.isAuthenticated()).toBeFalsy();
-    });
-  });</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                describe('Service: Auth', () => {
+                  let service: AuthService;
+                  beforeEach(() => { 
+                    service = new AuthService();
+                  });
+                  afterEach(() => { 
+                    service = null;
+                    localStorage.removeItem('token');
+                  });
+                  it('should return false if there is no token', () => {
+                    expect(service.isAuthenticated()).toBeFalsy();
+                  });
+                });
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -400,23 +465,23 @@
           >
             <h3 class="white">Dependency injection</h3>
             <ul>
-              <li>
-                inject function wraps the test specs function,
-              </li>
-              <li>
-                by default it use TestBed injector,
-              </li>
+              <li>inject function wraps the test specs function,</li>
+              <li>by default it use TestBed injector,</li>
               <li>
                 to switch to Component Injector we need to use debugElement.
               </li>
             </ul>
-            <pre><code> //fixture.debugElement.injector.get(AuthService);
-  it('should inject AuthService', inject([AuthService], (auth: AuthService) => {
-    expect(auth).toBe(mockedAuthService);
-  }));
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              //fixture.debugElement.injector.get(AuthService);
+                it('should inject AuthService', inject([AuthService], (auth: AuthService) => {
+                  expect(auth).toBe(mockedAuthService);
+                }));
 
-  //Dependency injection is also available direct in TestBed:
-  authService = TestBed.get(AuthService);</code></pre>
+                //Dependency injection is also available direct in TestBed:
+                authService = TestBed.get(AuthService);
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -427,11 +492,15 @@
               <li>
                 test <key>@Input</key> properties using simple assignment and
                 then trigger Change detection:
-                <pre><code> it('should disables the submit button', () => {
-    component.enabled = false;
-    fixture.detectChanges();
-    expect(submitEl.nativeElement.disabled).toBeTruthy();
-  });</code></pre>
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  it('should disables the submit button', () => {
+                      component.enabled = false;
+                      fixture.detectChanges();
+                      expect(submitEl.nativeElement.disabled).toBeTruthy();
+                    });
+                  </code>
+                </pre>
               </li>
             </ul>
           </section>
@@ -444,16 +513,20 @@
               <li>
                 Test <key>@Output</key> callbacks using subscribe function (it
                 shuld be an <key>EventEmitter</key>):
-                <pre><code> it('should emit user data after login',
-fakeAsync(() => {
-  let user: User;
-  component.loggedIn.subscribe(data => user = data);
+                <pre data-id="code-animation">
+                  <code class="hljs" data-trim data-line-numbers>
+                  it('should emit user data after login',
+                  fakeAsync(() => {
+                    let user: User;
+                    component.loggedIn.subscribe(data => user = data);
 
-  tick();
+                    tick();
 
-  expect(user.email).toBe('jstk@capgemini.com');
-  expect(user.password).toBe('qwerty');
-})); </code></pre>
+                    expect(user.email).toBe('jstk@capgemini.com');
+                    expect(user.password).toBe('qwerty');
+                  })); 
+                  </code>
+                </pre>
               </li>
             </ul>
           </section>
@@ -463,23 +536,27 @@ fakeAsync(() => {
           >
             <h3 class="white">Testing components</h3>
             <h4 class="white">Component References</h4>
-            <pre><code> describe('Component: Login', () => {
-    let authService: AuthService;
-    let component: LoginComponent;
-    let fixture: ComponentFixture&#x3C;LoginComponent&#x3E;; 
-    let el: DebugElement; 
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        import: [FormsModule],
-        declarations: [LoginComponent],
-        providers: [AuthService]
-      });
-      fixture = TestBed.createComponent(LoginComponent); 
-      component = fixture.componentInstance; 
-      authService = TestBed.get(AuthService); 
-      el = fixture.debugElement.query(By.css('button')); 
-    });
-  });</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              describe('Component: Login', () => {
+                  let authService: AuthService;
+                  let component: LoginComponent;
+                  let fixture: ComponentFixture&#x3C;LoginComponent&#x3E;; 
+                  let el: DebugElement; 
+                  beforeEach(() => {
+                    TestBed.configureTestingModule({
+                      import: [FormsModule],
+                      declarations: [LoginComponent],
+                      providers: [AuthService]
+                    });
+                    fixture = TestBed.createComponent(LoginComponent); 
+                    component = fixture.componentInstance; 
+                    authService = TestBed.get(AuthService); 
+                    el = fixture.debugElement.query(By.css('button')); 
+                  });
+                });
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -546,15 +623,19 @@ fakeAsync(() => {
             data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
           >
             <h3 class="white">Testing HttpClient</h3>
-            <pre><code> it('should test HttpClient.get', async(() => {
-  const responseData: Data = {name: 'Alicja'};
-  httpClient.get&#x3C;Data&#x3E;(testUrl)
-      .subscribe(data => expect(data).toEqual(responseData));
-  const reqs = httpTestingController.match('/data');
-  expect(reqs[0].request.method).toEqual('GET');
-  reqs[0].flush(responseData);
-  httpTestingController.verify();
-}));</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              it('should test HttpClient.get', async(() => {
+                const responseData: Data = {name: 'Alicja'};
+                httpClient.get&#x3C;Data&#x3E;(testUrl)
+                    .subscribe(data => expect(data).toEqual(responseData));
+                const reqs = httpTestingController.match('/data');
+                expect(reqs[0].request.method).toEqual('GET');
+                reqs[0].flush(responseData);
+                httpTestingController.verify();
+              }));
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -562,23 +643,26 @@ fakeAsync(() => {
           >
             <h3 class="white">Testing routing</h3>
             <ul>
-              <li>
-                use <key>RouterTestingModule.withRoutes()</key>,
-              </li>
+              <li>use <key>RouterTestingModule.withRoutes()</key>,</li>
               <li>
                 need to create AppComponent (with router-outlet) and then call
-              <key>router.initialNavigation()</key>,
+                <key>router.initialNavigation()</key>,
               </li>
               <li>
-                navigate with <key>navigate()</key> function but verify path with
-              <key>location.path()</key>
+                navigate with <key>navigate()</key> function but verify path
+                with
+                <key>location.path()</key>
               </li>
             </ul>
-            <pre><code> it('should redirects to /dashboard for empty route', fakeAsync(() => { 
-    router.navigate(['']); 
-    tick(); 
-    expect(location.path()).toBe('/dashboard'); 
-  }));</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              it('should redirects to /dashboard for empty route', fakeAsync(() => { 
+                  router.navigate(['']); 
+                  tick(); 
+                  expect(location.path()).toBe('/dashboard'); 
+                }));
+              </code>
+            </pre>
           </section>
 
           <section
@@ -587,26 +671,26 @@ fakeAsync(() => {
           >
             <h3 class="white">Testing classes & pipes</h3>
             <ul>
-              <li>
-                everything in Angular is an instance of a class,
-              </li>
-              <li>
-                we can test everything in js-way:
-              </li>
+              <li>everything in Angular is an instance of a class,</li>
+              <li>we can test everything in js-way:</li>
             </ul>
-            <pre><code>  describe('Service: Auth', () => {
-    let service: AuthService;
-    beforeEach(() => { 
-        service = new AuthService();
-    });
-    afterEach(() => { 
-        service = null;
-        localStorage.removeItem('token');
-    });
-      it('should return false if there is no token', () => {
-        expect(service.isAuthenticated()).toBeFalsy();
-    });
-  });</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                describe('Service: Auth', () => {
+                  let service: AuthService;
+                  beforeEach(() => { 
+                      service = new AuthService();
+                  });
+                  afterEach(() => { 
+                      service = null;
+                      localStorage.removeItem('token');
+                  });
+                    it('should return false if there is no token', () => {
+                      expect(service.isAuthenticated()).toBeFalsy();
+                  });
+                });
+              </code>
+            </pre>
           </section>
         </section>
         <section>
@@ -616,27 +700,31 @@ fakeAsync(() => {
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

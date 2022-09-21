@@ -5,25 +5,39 @@
     <meta charset="utf-8" />
     <meta name="author" content=" " />
     <meta name="description" content="Router" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
       <div class="slides">
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Router</h2>
           <p class="credits">by twawrzyn</p>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Routing</h2>
           <ul>
             <li>allows to navigate inside web application without reloads,</li>
@@ -33,85 +47,127 @@
             <li>allows to define multiple outlets.</li>
           </ul>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Routing</h2>
           <ul>
-            <li>
-              declarative API
-              
-            </li>
+            <li>declarative API</li>
           </ul>
-          <pre><code>  const routes: Routes = [
-    {path: 'hero/:id', component: HeroDetailConponent },
-    {path: 'heroes', component: HerolistComponent, 
-      data: { title: 'Heroes List'}
-    },
-    {path: '', redirectTo: '/heroes', pathMatch: 'full' },
-    {path: '**', component: PageNotFoundcomponent }
-  ];
-  
-  @Module({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule {}</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const routes: Routes = [
+                {path: 'hero/:id', component: HeroDetailConponent },
+                {path: 'heroes', component: HerolistComponent, 
+                  data: { title: 'Heroes List'}
+                },
+                {path: '', redirectTo: '/heroes', pathMatch: 'full' },
+                {path: '**', component: PageNotFoundcomponent }
+              ];
+              
+              @Module({
+                imports: [RouterModule.forRoot(routes)],
+                exports: [RouterModule]
+              })
+              export class AppRoutingModule {}
+            </code>
+          </pre>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Routing</h2>
           <ul>
             <li>
               router outlet,
-              <pre  style="width:750px"><code> &#x3C;router-outlet&#x3E;&#x3C;/router-outlet&#x3E;</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers> 
+                  &#x3C;router-outlet&#x3E;&#x3C;/router-outlet&#x3E;
+                </code>
+              </pre>
             </li>
             <li>
               links based on a href ,
-              <pre  style="width:750px"><code>  &#x3C;a routerLink="/hero/11" routerLinkActive="activeRoute"&#x3E;
-    Hero
-  &#x3C;/a&#x3E; </code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>  
+                  &#x3C;a routerLink="/hero/11" routerLinkActive="activeRoute"&#x3E;
+                    Hero
+                  &#x3C;/a&#x3E; 
+                </code>
+              </pre>
             </li>
             <li>
               cade-based redirection.
-              <pre  style="width:750px"><code>  constructor(router: Router){
-    router.navigate(['hero', 11]);
-  } </code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  constructor(router: Router){
+                    router.navigate(['hero', 11]);
+                  } 
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Routing with parameters</h2>
           <ul>
             <li>
               multiple types of parameters:
               <ul>
-                <li>params - defined in routers table
-                  <pre><code> /book/:id</code></pre>
+                <li>
+                  params - defined in routers table
+                  <pre data-id="code-animation">
+                    <code class="hljs" data-trim data-line-numbers>
+                    /book/:id
+                    </code>
+                  </pre>
                 </li>
-                <li>queryParams - defined in URL
-                    <pre><code> /book?id=12</code></pre>
+                <li>
+                  queryParams - defined in URL
+                  <pre data-id="code-animation">
+                    <code class="hljs" data-trim data-line-numbers>
+                    /book?id=12
+                    </code>
+                  </pre>
                 </li>
                 <li>data - additional data defined in routers table</li>
               </ul>
             </li>
           </ul>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Routing with parameters</h2>
           <ul>
             <li>
               static access:
-              <pre  style="width:750px"><code>
-  constructor(
-    activatedRouteSnapshot: ActivatedRouteSnapshot){
-    console.log(activatedRouteSnapshot.params.id);
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  constructor(
+                    activatedRouteSnapshot: ActivatedRouteSnapshot){
+                    console.log(activatedRouteSnapshot.params.id);
+                  }
+                </code>
+              </pre>
             </li>
             <li>
               reactive access via Observable:
-              <pre style="width:750px"><code>  constructor(activatedRoute:ActivatedRoute){
-    activatedRoute.paramsMap.subscribe(paramsMap=>{
-      console.log(paramsMap.get('id'));
-    })
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  constructor(activatedRoute:ActivatedRoute){
+                    activatedRoute.paramsMap.subscribe(paramsMap=>{
+                      console.log(paramsMap.get('id'));
+                    })
+                  }
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -122,27 +178,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

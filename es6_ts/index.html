@@ -5,25 +5,39 @@
     <meta charset="utf-8" />
     <meta name="author" content=" " />
     <meta name="description" content="ES6 & TS" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
       <div class="slides">
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">ES6 & TS</h2>
           <p class="credits">by twawrzyn</p>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Agenda</h2>
           <ul class="no-bullet">
             <li>
@@ -45,70 +59,124 @@
             </li>
           </ul>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Fat arrow</h2>
-          <pre><code>    const sum = (a, b) => a+b;
-    
-    const avg = (a, b) => {
-      const suma = sum(a,b);
-      return suma/2;
-    };          </code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const sum = (a, b) => a+b;
+              
+              const avg = (a, b) => {
+                const suma = sum(a,b);
+                return suma/2;
+              };
+            </code>
+          </pre>
           <ul>
             <li>Simplicity</li>
             <li>Bounded this</li>
           </ul>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Spread operator</h2>
-          <pre><code>  const arr = [1, 2, 3];
-  const arr2 = [...arr, 4, 5, 6];
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const arr = [1, 2, 3];
+              const arr2 = [...arr, 4, 5, 6];
 
-  console.log(arr2); // [1,2,3,4,5,6]</code></pre>
-          <pre><code>  const address = { city: 'Warsaw'};
-  const person = { name: 'Adam', ...address};
+              console.log(arr2); // [1,2,3,4,5,6]
+            </code>
+          </pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const address = { city: 'Warsaw'};
+              const person = { name: 'Adam', ...address};
 
-  console.log(person); // {name:'Adam',city:'Warsaw'};</code></pre>
+              console.log(person); // {name:'Adam',city:'Warsaw'};
+            </code>
+          </pre>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">Object/Array destructuring</h2>
-          <pre><code>  const person = { name: 'Adam',age:22};
-  const {name, age} = person;
-  console.log(name); // 'Adam'
-  console.log(age); // 22</code></pre>
-          <pre><code>  const names = ['Ala', 'Tomek','Krzyś'];
-  const [firstElem, ...tail] = names;
-  console.log(firstElem); // 'Ala'
-  console.log(tail); // ['Tomek','Krzyś']</code></pre>
-          <pre><code>  let x = 1;
-  let y = 20;
-  [y, x]=[x, y]
-  console.log(x); // 20
-  console.log(y); // 1</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const person = { name: 'Adam',age:22};
+              const {name, age} = person;
+              console.log(name); // 'Adam'
+              console.log(age); // 22
+            </code>
+          </pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const names = ['Ala', 'Tomek','Krzyś'];
+              const [firstElem, ...tail] = names;
+              console.log(firstElem); // 'Ala'
+              console.log(tail); // ['Tomek','Krzyś']
+            </code>
+          </pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              let x = 1;
+              let y = 20;
+              [y, x]=[x, y]
+              console.log(x); // 20
+              console.log(y); // 1
+            </code>
+          </pre>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">String interpolation</h2>
 
-          <pre><code>  const person = 'Adam';
-  
-  const text = `Hallo ${person}`
-  
-  const textMultiLine = `Hallo ${person},
-                        How are you?`</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const person = 'Adam';
+              
+              const text = `Hallo ${person}`
+              
+              const textMultiLine = `Hallo ${person},
+                                    How are you?`
+            </code>
+          </pre>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">let & const</h2>
-          <pre><code>  const num = 1;
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              const num = 1;
 
-  num = 2; 
-  //Uncaught TypeError: Assignment to constant variable.</code></pre>
-          <pre><code>  for(let i=0; i<10;i++){
-    let a:string  = 'block';
-  }
+              num = 2; 
+              //Uncaught TypeError: Assignment to constant variable.
+            </code>
+          </pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              for(let i=0; i<10;i++){
+                let a:string  = 'block';
+              }
 
-  console.log(a); 
-  //Uncaught ReferenceError: a is not defined</code></pre>
+              console.log(a); 
+              //Uncaught ReferenceError: a is not defined
+            </code>
+          </pre>
         </section>
-        <section data-transition="slide" data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg">
+        <section
+          data-transition="slide"
+          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+        >
           <h2 class="white">TypeScript</h2>
           <ul>
             <li>open-source, developed by Microsoft,</li>
@@ -132,27 +200,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

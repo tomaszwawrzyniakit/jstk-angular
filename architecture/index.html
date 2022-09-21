@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -41,9 +46,7 @@
             <li>
               <h3 class="white">Components</h3>
               <ul>
-                <li>
-                  Components
-                </li>
+                <li>Components</li>
                 <li>Life cycle</li>
               </ul>
             </li>
@@ -84,14 +87,18 @@
           >
             <h3 class="white">Bootstraping</h3>
             <h4 class="white">main.ts</h4>
-            <pre><code>  if (environment.production) {
-    enableProdMode();
-  }
-  
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .then(()=> console.log('App started!'))
-    .catch((err) => console.log(err));</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                if (environment.production) {
+                  enableProdMode();
+                }
+                
+                platformBrowserDynamic()
+                  .bootstrapModule(AppModule)
+                  .then(()=> console.log('App started!'))
+                  .catch((err) => console.log(err));
+                </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -99,19 +106,23 @@
           >
             <h3 class="white">Bootstraping</h3>
             <h4 class="white">index.html</h4>
-            <pre><code>  &#x3C;!DOCTYPE html&#x3E;
-  &#x3C;html&#x3E;
-    &#x3C;head&#x3E;
-        &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
-        &#x3C;title&#x3E;JSTK&#x3C;/title&#x3E;
-        &#x3C;base href=&#x22;/&#x22;&#x3E;
-        &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width,
-          initial-scale=1&#x22;&#x3E;
-    &#x3C;/head&#x3E;
-    &#x3C;body&#x3E;
-        &#x3C;app-root&#x3E;Loading...&#x3C;/app-root&#x3E;
-    &#x3C;/body&#x3E;
-  &#x3C;/html&#x3E;</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                &#x3C;!DOCTYPE html&#x3E;
+                &#x3C;html&#x3E;
+                  &#x3C;head&#x3E;
+                      &#x3C;meta charset="utf-8"&#x3E;
+                      &#x3C;title&#x3E;JSTK&#x3C;/title&#x3E;
+                      &#x3C;base href="/"&#x3E;
+                      &#x3C;meta name="viewport" 
+                        content="width=device-width, initial-scale=1"&#x3E;
+                  &#x3C;/head&#x3E;
+                  &#x3C;body&#x3E;
+                      <app-root>Loading...</app-root>
+                  &#x3C;/body&#x3E;
+                &#x3C;/html&#x3E;
+              </code>
+            </pre>
           </section>
         </section>
         <section
@@ -125,7 +136,8 @@
             src="./img/architecture.png"
           />
           <small
-          >Source:https://www.javatpoint.com/angular-7-architecture</small>
+            >Source:https://www.javatpoint.com/angular-7-architecture</small
+          >
         </section>
 
         <section>
@@ -141,29 +153,37 @@
               <li>
                 communication:
                 <ul>
-                  <li>parent -> child – passing data via properties (binding),</li>
+                  <li>
+                    parent -> child – passing data via properties (binding),
+                  </li>
                   <li>child -> parent – emitting Angulars events.</li>
                 </ul>
               </li>
             </ul>
           </section>
+
           <section
             data-transition="slide"
             data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
           >
             <h2 class="white">Components</h2>
             <h3 class="white">Custom DOM elements</h3>
-            <pre><code>  import { Component } from '@angular/core';
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              import { Component } from '@angular/core';
 
-  @Component({
-    selector: 'jstk-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
-  })
-  export class AppComponent {
-    title = 'jstk-app';
-  }</code></pre>
+              @Component({
+                selector: 'jstk-root',
+                templateUrl: './app.component.html',
+                styleUrls: ['./app.component.scss']
+              })
+              export class AppComponent {
+                title = 'jstk-app';
+              }
+              </code>
+            </pre>
           </section>
+
           <section
             data-transition="slide"
             data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
@@ -171,56 +191,68 @@
             <h2 class="white">Components</h2>
             <h3 class="white">Data flow - HTML</h3>
 
-            <pre><code> &#x3C;div style=&#x22;text-align:center&#x22;&#x3E;
-  &#x3C;hl&#x3E;Welcome to {{hero.name}}!&#x3C;/h1&#x3E;
-  &#x3C;div&#x3E;
-    &#x3C;input [(ngModel)]=&#x22;hero.name&#x22; /&#x3E;
-  &#x3C;/div&#x3E;
-
-  &#x3C;app-hero-detail 
-    [hero]=&#x22;hero&#x22; 
-    (heroChanged)="onHeroChanged($event)" 
-  /&#x3E;&#x3C;app-hero-detail&#x3E;
-
-  &#x3C;button (click)=&#x22;selectHero(hero)&#x22;&#x3E;Select&#x3C;button&#x3E; 
- &#x3C;/div&#x3E;</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                &#x3C;div style=&#x22;text-align:center&#x22;&#x3E;
+                &#x3C;hl&#x3E;Welcome to {{hero.name}}!&#x3C;/h1&#x3E;
+                &#x3C;div&#x3E;
+                  &#x3C;input [(ngModel)]=&#x22;hero.name&#x22; /&#x3E;
+                &#x3C;/div&#x3E;
+              
+                &#x3C;app-hero-detail 
+                  [hero]=&#x22;hero&#x22; 
+                  (heroChanged)="onHeroChanged($event)" 
+                /&#x3E;&#x3C;app-hero-detail&#x3E;
+              
+                &#x3C;button (click)=&#x22;selectHero(hero)&#x22;&#x3E;Select&#x3C;button&#x3E; 
+               &#x3C;/div&#x3E;
+              </code>
+            </pre>
           </section>
           <section
-          data-transition="slide"
-          data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
-        >
-          <h2 class="white">Components</h2>
-          <h3 class="white">Data flow - TS</h3>
-          <pre><code> @Component({
-    selector: 'app-hero-detail',
-    templateUrl: './app-hero-detail.component.html',
-    styleUrls: ['./app-hero-detail.component.scss']
-  })
-  export class AppHeroDetail {
-    @Input() hero: Hero;
-    @Output() heroChanged: EventEmitter = new EventEmitter();
-  }</code></pre>
-      </code></pre>
-        </section>
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
+          >
+            <h2 class="white">Components</h2>
+            <h3 class="white">Data flow - TS</h3>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              @Component({
+                selector: 'app-hero-detail',
+                templateUrl: './app-hero-detail.component.html',
+                styleUrls: ['./app-hero-detail.component.scss']
+              })
+              export class AppHeroDetail {
+                @Input() hero: Hero;
+                @Output() heroChanged: EventEmitter = new EventEmitter();
+              }
+              </code>
+            </pre>
+          </section>
+
           <section
             data-transition="slide"
             data-background-image="../common/img/shapes/Fixed_Shape_2_SVG/Fixed_Shape_2_CapgeminiBlue_RGB.svg"
           >
             <h2 class="white">Components</h2>
             <h3 class="white">Styling</h3>
-            <pre><code>  :host (
-    width: 186px;
-    background-color: Bred;
-    div {
-      float: left;
-    }
-  }
-  :host(.active) (
-    background-color: blue;
-  }
-  :host-context(.active) (
-    background-color: yellow;
-  }</code></pre>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              :host (
+                width: 186px;
+                background-color: Bred;
+                div {
+                  float: left;
+                }
+              }
+              :host(.active) (
+                background-color: blue;
+              }
+              :host-context(.active) (
+                background-color: yellow;
+              }
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -245,14 +277,27 @@
             <h2 class="white">Lifecyclehooks</h2>
             <h3 class="white">Most used</h3>
             <ul>
-              <li>ngOnInit() - invoked after all @Input/@Output are initialized</li>
-              <li>ngOnDestroy() - invoked before Angular destroys the component</li>
-            
-              <small><li>ngDoCheck() - invoked during each change detection</li></small>
-              <small><li>ngOnChanges() - invoked when Angular (re)sets Input properties</li></small>
+              <li>
+                ngOnInit() - invoked after all @Input/@Output are initialized
+              </li>
+              <li>
+                ngOnDestroy() - invoked before Angular destroys the component
+              </li>
+
+              <small
+                ><li>
+                  ngDoCheck() - invoked during each change detection
+                </li></small
+              >
+              <small
+                ><li>
+                  ngOnChanges() - invoked when Angular (re)sets Input properties
+                </li></small
+              >
             </ul>
           </section>
         </section>
+
         <section
           data-transition="slide"
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
@@ -264,57 +309,63 @@
             <li>chaining with | (linux style),</li>
             <li>support for memoization (pure pipes).</li>
           </ul>
-          <pre><code><!-- Default format: output 'Jun 15, 2018' -->
-&#x3C;p&#x3E;Today is {{today | date}}&#x3C;/p&#x3E;
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+            <!-- Default format: output 'Jun 15, 2018' -->
+            &#x3C;p&#x3E;Today is {{today | date}}&#x3C;/p&#x3E;
 
-<!--  fullDate format: output 'Monday, June 15, 2018' -->
-&#x3C;p&#x3E;The date is {{today | date: 'fullDate'}}&#x3C;/p&#x3E;
+            <!--  fullDate format: output 'Monday, June 15, 2018' -->
+            &#x3C;p&#x3E;The date is {{today | date: 'fullDate'}}&#x3C;/p&#x3E;
 
-<!-- shortTime format: output '9:42 PM'-->
-&#x3C;p&#x3E;The time is {{today | date:'shgrtTime'}}&#x3C;/p&#x3E;</code></pre>
+            <!-- shortTime format: output '9:42 PM'-->
+            &#x3C;p&#x3E;The time is {{today | date:'shgrtTime'}}&#x3C;/p&#x3E;
+            </code>
+          </pre>
           <a href="https://angular.io/api?type=pipe">
             << Check more built-in pipes >></a
           >
         </section>
         <section>
-        <section
-          data-transition="slide"
-          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
-        >
-          <h2 class="white">Directives</h2>
-          <h3 class="white">DOM transformations</h3>
-          <ul>
-            <li>allow to add superpowers to the DOM elements,</li>
-            <li>manipulating DOM tree,</li>
-            <li>
-              build-in directives:
-              <ul>
-                <li>*ngIf,</li>
-                <li>*ngFor,</li>
-                <li>ngSwitch & *ngSwitchCase,</li>
-                <li>ngModel,</li>
-                <li>ngClass.</li>
-              </ul>
-            </li>
-          </ul>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h2 class="white">Directives</h2>
+            <h3 class="white">DOM transformations</h3>
+            <ul>
+              <li>allow to add superpowers to the DOM elements,</li>
+              <li>manipulating DOM tree,</li>
+              <li>
+                build-in directives:
+                <ul>
+                  <li>*ngIf,</li>
+                  <li>*ngFor,</li>
+                  <li>ngSwitch & *ngSwitchCase,</li>
+                  <li>ngModel,</li>
+                  <li>ngClass.</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section
+            data-transition="slide"
+            data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
+          >
+            <h2 class="white">Directives</h2>
+            <h3 class="white">DOM transformations</h3>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              &#x3C;li *ngFor="let hero of heroes"&#x3E;
+                  {{ hero }}
+              &#x3C;li&#x3E;
+              &#x3C;app-hero-detail *ngIf="hero"&#x3E;&#x3C;/app-hero-detail&#x3E;\
+              &#x3C;btn [ngClass]="red"&#x3E;&#x3C;/btn&#x3E;
+              &#x3C;btn [ngClass]="{ disabled: isDisabled(), error: hasError() }"&#x3E;
+              &#x3C;/btn&#x3E;
+              </code>
+            </pre>
+          </section>
         </section>
-        <section
-          data-transition="slide"
-          data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
-        >
-          <h2 class="white">Directives</h2>
-          <h3 class="white">DOM transformations</h3>
-          <pre><code>&#x3C;li *ngFor="let hero of heroes">
-    {{hero}}
-&#x3C;li&#x3E;
-&#x3C;app-hero-detail *ngIf="hero"&#x3E;&#x3C;/app-hero-detail&#x3E;\
-
-&#x3C;btn [ngClass]="red"&#x3E;&#x3C;/btn&#x3E;
-
-&#x3C;btn [ngClass]="{disabled: isDisabled(),error:hasError()}"&#x3E;
-&#x3C;/btn&#x3E;</code></pre>
-        </section>
-      </section>
         <section
           data-transition="slide"
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
@@ -326,14 +377,18 @@
             <li>obtained from dependency injection,</li>
             <li>must be provided in root or module.</li>
           </ul>
-          <pre><code>  import { Injectable } from '@angular/core';
-  import { StarterService } from './starter.service';
-  @Injectable({
-    prowidedIn: 'root'
-  })
-  export class AppServiceService {
-    constructor(private starterService: StarterService) {}
-  }</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              import { Injectable } from '@angular/core';
+              import { StarterService } from './starter.service';
+              @Injectable({
+                prowidedIn: 'root'
+              })
+              export class AppServiceService {
+                constructor(private starterService: StarterService) {}
+              }
+            </code>
+          </pre>
         </section>
         <section>
           <section
@@ -353,24 +408,23 @@
             data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
           >
             <h2 class="white">Modules</h2>
-            <pre><code>  import { BrowserModule } from '@angular/platform-browser';
-  import { NgModule } from '@angular/core';
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import { BrowserModule } from '@angular/platform-browser';
+                import { NgModule } from '@angular/core';
 
-  import { AppRoutingModule } from './app-routing.module';
-  import { AppComponent } from './app.component';
-  
-  @NgModule({
-    declarations: [
-      AppComponent
-    ],  
-    imports: [
-      BrowserModule,
-      AppRoutingModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-  })
-  export class AppModule { }</code></pre>
+                import { AppRoutingModule } from './app-routing.module';
+                import { AppComponent } from './app.component';
+                
+                @NgModule({
+                  declarations: [ AppComponent ],  
+                  imports: [ BrowserModule, AppRoutingModule ],
+                  providers: [],
+                  bootstrap: [AppComponent]
+                })
+                export class AppModule { }
+              </code>
+            </pre>
           </section>
           <section
             data-transition="slide"
@@ -380,7 +434,9 @@
             <ul>
               <li>imports – external modules,</li>
               <li>exports – exported elements,</li>
-              <li>declarations - components and pipes (for template proposes),</li>
+              <li>
+                declarations - components and pipes (for template proposes),
+              </li>
               <li>providers – injectables (services, guards, pipes),</li>
               <li>bootstrap – starting point for application.</li>
             </ul>
@@ -393,27 +449,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

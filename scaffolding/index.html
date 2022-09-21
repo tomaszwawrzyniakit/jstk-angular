@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -61,7 +66,11 @@
             </li>
             <li>
               <h3 class="white">Angular.CLI</h3>
-              <pre><code>npm install -g @angular/cli</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                npm install -g @angular/cli
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -89,22 +98,38 @@
           <ul>
             <li>
               generate new APP
-              <pre><code> ng new my-app</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                ng new my-app
+                </code>
+              </pre>
             </li>
             <li>
               start APP
-              <pre><code> ng serve
- ng build</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                ng serve
+                ng build
+                </code>
+              </pre>
             </li>
             <li>
               creating new componenet component/service
-              <pre><code> ng generate</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                ng generate
+                </code>
+              </pre>
             </li>
             <li>
               run tests/ check lints
-              <pre><code> ng test
- ng lint
- ng lint --fix</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                ng test
+                ng lint
+                ng lint --fix
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -115,27 +140,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -46,15 +51,19 @@
           data-background-image="../common/img/shapes/Fixed_Shape_3_SVG/Fixed_Shape_3_CapgeminiBlue_RGB.svg"
         >
           <h2 class="white">RXJS</h2>
-          <pre><code> const timer$ = new Observable((subscriber) => {
-    const {next, error, complete} = subscriber;
-    let i = 0;
-    setInterval(() => next(i++), 1000);
-  });
-    
-  const timerSubscription = timer$
-    .pipe(filter(curSec => curSec%10))
-    .subscribe(sec =>console.log(`Current sec ${sec}`));</code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+            const timer$ = new Observable((subscriber) => {
+                const {next, error, complete} = subscriber;
+                let i = 0;
+                setInterval(() => next(i++), 1000);
+              });
+                
+              const timerSubscription = timer$
+                .pipe(filter(curSec => curSec%10))
+                .subscribe(sec =>console.log(`Current sec ${sec}`));
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -65,15 +74,27 @@
           <ul>
             <li>
               side effects
-              <pre><code> tap(function)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                tap(function)
+                </code>
+              </pre>
             </li>
             <li>
               filter emmited data
-              <pre><code> filter(predicate)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                filter(predicate)
+                </code>
+              </pre>  
             </li>
             <li>
               map data inside observable
-              <pre><code> map(function)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                map(function)
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -86,11 +107,19 @@
           <ul>
             <li>
               emits last value if nothing emitted in last {time}
-              <pre><code> debounceTime(time)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                debounceTime(time)
+                </code>
+              </pre>
             </li>
             <li>
               maps observable to another observable
-              <pre><code> switchMap(observable$)</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                switchMap(observable$)
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -103,16 +132,16 @@
             <li>
               Hot observable - emits data even without subscription,
               <ul>
-                <li>
-                  Router,
-                </li>
-                <li>
-                  Events.
-                </li>
+                <li>Router,</li>
+                <li>Events.</li>
               </ul>
             </li>
           </ul>
-          <pre><code>  Observable.fromEvent(document, 'click'); </code></pre>
+          <pre data-id="code-animation">
+            <code class="hljs" data-trim data-line-numbers>
+              Observable.fromEvent(document, 'click'); 
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -124,19 +153,21 @@
               Cold observable - emits data after subscription, separatly for
               each observer
               <ul>
-                <li>
-                  HttpClient
-                </li>
+                <li>HttpClient</li>
               </ul>
             </li>
           </ul>
-          <pre style="width:800px"><code>  const timer$ = new Observable((subscriber) => {
-    let i = 0;
-    const intervalId = setInterval(
-      () => subscriber.next(i++),
-      1000);
-    return ()=> clearInterval(intervalId);
-  });</code></pre>
+          <pre data-id="code-animation" style="width: 800px">
+            <code class="hljs" data-trim data-line-numbers>  
+              const timer$ = new Observable((subscriber) => {
+                let i = 0;
+                const intervalId = setInterval(
+                  () => subscriber.next(i++),
+                  1000);
+                return ()=> clearInterval(intervalId);
+              });
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -144,20 +175,22 @@
         >
           <h2 class="white">Subscribing</h2>
           <ul>
-            <li>
-              subscription must be unsubscribed
-            </li>
+            <li>subscription must be unsubscribed</li>
             <li>
               supported in template (via async pipe)
-              <pre><code>  &#x3C;div *ngIf="book$ | async as book";&#x3E;
-    &#x3C;span&#x3E;Name {{book.name}}&#x3C;/span&#x3E;
-    &#x3C;span&#x3E;Author {{book.author}}&#x3C;/span&#x3E;
-  &#x3C;/div&#x3E;
-  
-  &#x3C;div *ngFor="let book in books$ | async";&#x3E;
-    &#x3C;span&#x3E;Name {{book.name}}&#x3C;/span&#x3E;
-    &#x3C;span&#x3E;Author {{book.author}}&#x3C;/span&#x3E;
-  &#x3C;/div&#x3E;</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                  &#x3C;div *ngIf="book$ | async as book";&#x3E;
+                    &#x3C;span&#x3E;Name {{book.name}}&#x3C;/span&#x3E;
+                    &#x3C;span&#x3E;Author {{book.author}}&#x3C;/span&#x3E;
+                  &#x3C;/div&#x3E;
+                  
+                  &#x3C;div *ngFor="let book in books$ | async";&#x3E;
+                    &#x3C;span&#x3E;Name {{book.name}}&#x3C;/span&#x3E;
+                    &#x3C;span&#x3E;Author {{book.author}}&#x3C;/span&#x3E;
+                  &#x3C;/div&#x3E;
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -168,27 +201,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>

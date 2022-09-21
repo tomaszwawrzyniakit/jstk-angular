@@ -10,14 +10,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
     <link rel="icon" href="../common/img/favicon.ico" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
     <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/black.css" />
-    
 
     <!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
+    <link
+      rel="stylesheet"
+      href="../reveal.js-4.3.1/plugin/highlight/monokai.css"
+    />
   </head>
   <body>
     <div class="reveal white">
@@ -36,15 +41,9 @@
           <h3 class="white">Model-Driven Forms</h3>
           <h4 class="white">a.k.a Reactive Forms</h4>
           <ul>
-            <li>
-              structure and validation defined in an model,
-            </li>
-            <li>
-              validator is an simple function,
-            </li>
-            <li>
-              can be used in reactive-way.
-            </li>
+            <li>structure and validation defined in an model,</li>
+            <li>validator is an simple function,</li>
+            <li>can be used in reactive-way.</li>
           </ul>
         </section>
         <section
@@ -61,15 +60,9 @@
               <key>FormGroup</key> manage the set of <key>FormControls,</key>
             </li>
             <li><key>FormGroups</key> can be nested,</li>
-            <li>
-              should be initialised in ngOnInit,
-            </li>
-            <li>
-              wraps all standard inputs: input/checkbox/select,
-            </li>
-            <li>
-              reactive access and static access to values,
-            </li>
+            <li>should be initialised in ngOnInit,</li>
+            <li>wraps all standard inputs: input/checkbox/select,</li>
+            <li>reactive access and static access to values,</li>
             <li>static setter with <key>setValue(value)</key>.</li>
           </ul>
         </section>
@@ -107,17 +100,25 @@
           <ul>
             <li>
               step1: declaration in component:
-              <pre style="width:700px"><code>  @Component({ ... })
-  export class UserComponent {
-    name = new FormControl('default val');
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 700px">
+                <code class="hljs" data-trim data-line-numbers>  
+                  @Component({ ... })
+                  export class UserComponent {
+                    name = new FormControl('default val');
+                  }
+                </code>
+              </pre>
             </li>
             <li>
               step2: binding in HTML using directive
-              <pre style="width:700px"><code>  &#x3C;label&#x3E;
-    Name:
-    &#x3C;input type=&#x22;text&#x22; [formControl]=&#x22;name&#x22;&#x3E;
-  &#x3C;/label&#x3E;</code></pre>
+              <pre data-id="code-animation" style="width: 700px">
+                <code class="hljs" data-trim data-line-numbers>  
+                  &#x3C;label&#x3E;
+                    Name:
+                    &#x3C;input type=&#x22;text&#x22; [formControl]=&#x22;name&#x22;&#x3E;
+                  &#x3C;/label&#x3E;
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -129,17 +130,29 @@
           <ul>
             <li>
               reactive access using valueChanges:
-              <pre><code> this.name.valueChanges.subscribe(value => {
-    console.log(value);
-  });</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                this.name.valueChanges.subscribe(value => {
+                    console.log(value);
+                  });
+                </code>
+              </pre>
             </li>
             <li>
               static access with value property:
-              <pre><code> console.log(this.name.value);</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                console.log(this.name.value);
+                </code>
+              </pre>
             </li>
             <li>
               static setter with setValue(value) function:
-              <pre><code> this.name.setValue('John');</code></pre>
+              <pre data-id="code-animation">
+                <code class="hljs" data-trim data-line-numbers>
+                this.name.setValue('John');
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -150,15 +163,11 @@
           <h3 class="white">Saving / Resetting Data</h3>
           <ul>
             <li>utilisation of <key>submit</key> button</li>
-            <li>
-              no separate event listener for submit
-            </li>
+            <li>no separate event listener for submit</li>
             <li>
               to reset the form we need to call the <key>reset()</key> function:
               <ul>
-                <li>
-                  all field will be reset to given state,
-                </li>
+                <li>all field will be reset to given state,</li>
                 <li>
                   <key>valid</key>, <key>touched</key> and
                   <key>dirty</key> properties will be set to false
@@ -175,24 +184,30 @@
           <ul>
             <li>
               step1: handler in component:
-              <pre style="width:750px;"><code> onSubmit() {
-    if (this.myform.valid) {
-      console.log('Form Submitted!');
-      this.api.saveData(this.myForm.value);
-      this.myform.reset();
-    }
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 750px">
+                <code class="hljs" data-trim data-line-numbers> 
+                  onSubmit() {
+                    if (this.myform.valid) {
+                      console.log('Form Submitted!');
+                      this.api.saveData(this.myForm.value);
+                      this.myform.reset();
+                    }
+                  }
+                </code>
+              </pre>
             </li>
             <li>
               step2: binding in HTML:
-              <pre
-                style="width:750px;"
-              ><code> &#x3C;form [formGroup]=&#x22;profileForm&#x22; (ngSubmit)=&#x22;onSubmit()&#x22;&#x3E;
-    &#x3C;button 
-      type=&#x22;submit&#x22; 
-      [disabled]="!profileForm.valid" &#x3E;
-    SEND&#x3C;/button&#x3E;
-  &#x3C;/form&#x3E;</code></pre>
+              <pre data-id="code-animation" style="width: 750px">
+                <code class="hljs" data-trim data-line-numbers>
+                  &#x3C;form [formGroup]=&#x22;profileForm&#x22; (ngSubmit)=&#x22;onSubmit()&#x22;&#x3E;
+                  &#x3C;button 
+                    type=&#x22;submit&#x22; 
+                    [disabled]="!profileForm.valid" &#x3E;
+                    SEND&#x3C;/button&#x3E;
+                  &#x3C;/form&#x3E;
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -204,18 +219,20 @@
           <ul>
             <li>injectable helper service – <key>FormBuilder</key>,</li>
             <li>use it to create <key>AbstractControls</key>,</li>
-            <li>
-              shorter and simpler way to create forms.
-            </li>
+            <li>shorter and simpler way to create forms.</li>
           </ul>
-          <pre style="width:800px"><code>  @Component({ ... })
-  export class UserSettingsComponent {
-    constructor(fb: FormBuilder)
-    personalData = this.fb.group({
-      firstName: ['John'],
-      lastName: ['Doe', Validators.required]
-    });
-  }</code></pre>
+          <pre data-id="code-animation" style="width: 800px">
+            <code class="hljs" data-trim data-line-numbers>  
+              @Component({ ... })
+              export class UserSettingsComponent {
+                constructor(fb: FormBuilder)
+                personalData = this.fb.group({
+                  firstName: ['John'],
+                  lastName: ['Doe', Validators.required]
+                });
+              }
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -223,9 +240,7 @@
         >
           <h3 class="white">Form Validators</h3>
           <ul>
-            <li>
-              rules which an input control has to follow,
-            </li>
+            <li>rules which an input control has to follow,</li>
             <li>
               registering validators by defining them with
               <key>AbstractControl</key>,
@@ -242,30 +257,28 @@
         >
           <h3 class="white">Form Validators</h3>
           <ul>
-            <li>
-              two types of validators: sync / async validators,
-            </li>
+            <li>two types of validators: sync / async validators,</li>
             <li>
               both return either <key>ValidationErrors</key> or <key>null</key>,
             </li>
-            <li>
-              async validator uses Observable or Promise,
-            </li>
-            <li>
-              Built-in validators:
-            </li>
+            <li>async validator uses Observable or Promise,</li>
+            <li>Built-in validators:</li>
           </ul>
-          <pre style="width:900px"><code> export declare class Validators {
-    static min(min: number): ValidatorFn;
-    static max(max: number): ValidatorFn;
-    static required(control: AbstractControl): ValidationErrors | null;
-    static requiredTrue(control: AbstractControl): ValidationErrors | null;
-    static email(control: AbstractControl): ValidationErrors | null;
-    static minLength(minLength: number): ValidatorFn;
-    static maxLength(maxLength: number): ValidatorFn;
-    static pattern(pattern: string | RegExp): ValidatorFn;
-    static nullValidator(control: AbstractControl): ValidationErrors | null;
-  }</code></pre>
+          <pre data-id="code-animation" style="width: 900px">
+            <code class="hljs" data-trim data-line-numbers> 
+              export declare class Validators {
+                static min(min: number): ValidatorFn;
+                static max(max: number): ValidatorFn;
+                static required(control: AbstractControl): ValidationErrors | null;
+                static requiredTrue(control: AbstractControl): ValidationErrors | null;
+                static email(control: AbstractControl): ValidationErrors | null;
+                static minLength(minLength: number): ValidatorFn;
+                static maxLength(maxLength: number): ValidatorFn;
+                static pattern(pattern: string | RegExp): ValidatorFn;
+                static nullValidator(control: AbstractControl): ValidationErrors | null;
+              }
+            </code>
+          </pre>
         </section>
         <section
           data-transition="slide"
@@ -275,27 +288,33 @@
           <ul>
             <li>
               step1: implement validator:
-              <pre
-                style="width:800px"
-              ><code>  export function biggerThan2(control: AbstractControl): ValidationErrors | null {
-    return control.value>2 ? {biggerThan2: 'Value too big: 2' } : null;
-  }
-  export function forbiddenValidator(forbidden: string[]): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      return forbidden.contains(control.value) ?
-        {forbidden: 'You cant use this value' } : null;
-    };
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  export function biggerThan2(control: AbstractControl): ValidationErrors | null {
+                    return control.value>2 ? {biggerThan2: 'Value too big: 2' } : null;
+                  }
+                  export function forbiddenValidator(forbidden: string[]): ValidatorFn {
+                    return (control: AbstractControl): ValidationErrors | null => {
+                      return forbidden.contains(control.value) ?
+                        {forbidden: 'You cant use this value' } : null;
+                    };
+                  }
+                </code>
+              </pre>
             </li>
             <li>
               step2: add vaidator to control
-              <pre style="width:800px"><code> this.loginForm: FormGroup;
-  ngOnInit() {
-    this.loginForm = this.fb.group({
-      'login': ['', [forbiddenValidator(['login'])],
-      'age': ['', [Validators.required, biggerThan2]]
-    });
-  }</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers> 
+                  this.loginForm: FormGroup;
+                  ngOnInit() {
+                    this.loginForm = this.fb.group({
+                      'login': ['', [forbiddenValidator(['login'])],
+                      'age': ['', [Validators.required, biggerThan2]]
+                    });
+                  }
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -305,12 +324,8 @@
         >
           <h3 class="white">Control state</h3>
           <ul>
-            <li>
-              accessible with control reference,
-            </li>
-            <li>
-              reflected in class attribute:
-            </li>
+            <li>accessible with control reference,</li>
+            <li>reflected in class attribute:</li>
           </ul>
           <table>
             <tr>
@@ -346,16 +361,18 @@
           <ul>
             <li>
               allows to dynamic applies classes to an html element
-              <pre
-                style="width:800px"
-              ><code> &#x3C;div class=&#x22;form-group&#x22; 
-  [ngClass]="{
-  wrong: 
-    myform.controls.email.invalid && myform.controls.email.dirty, 
-  correct: 
-    myform.controls.email.valid && myform.controls.email.dirty 
-  }"
-  &#x3E;</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  &#x3C;div class="form-group" 
+                  [ngClass]="{
+                  wrong: 
+                    myform.controls.email.invalid && myform.controls.email.dirty, 
+                  correct: 
+                    myform.controls.email.valid && myform.controls.email.dirty 
+                  }"
+                  &#x3E;
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -366,19 +383,20 @@
         >
           <h3 class="white">Safe navigation operator (a.k.a Elvis operator)</h3>
           <ul>
-            <li>
-              special char: <key>?</key>,
-            </li>
+            <li>special char: <key>?</key>,</li>
             <li>
               if form.controls.email was null or undefined it would not try to
               call form.controls.email.valid:
-              <pre
-                style="width:800px"
-              ><code> {{form.controls.email?.valid}}</code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  {{form.controls.email?.valid}}
+                </code>
+              </pre>
             </li>
           </ul>
-          <code> 
-"Only try to call the property on the right of ? if the property on the left of ? is not null"  
+          <code>
+            "Only try to call the property on the right of ? if the property on
+            the left of ? is not null"
           </code>
         </section>
         <section
@@ -387,28 +405,24 @@
         >
           <h3 class="white">Pipes</h3>
           <ul>
-            <li>
-              used to transform data,
-            </li>
-            <li>
-              we can chain pipes together like in unix systems,
-            </li>
-            <li>
-              two types of pipes: Pure / Unpure,
-            </li>
+            <li>used to transform data,</li>
+            <li>we can chain pipes together like in unix systems,</li>
+            <li>two types of pipes: Pure / Unpure,</li>
             <li>
               built-ins:
-              <pre style="width:800px"><code>
-  currency    //{{123 | currency:'PLN'}}
-  date        //{{mydate | date:'shortTime'}}
-  decimal     //{{12.2122 | number:'3.1-2'}}
-  json        //{{myobject | json}}
-  lowercase   //{{'Aaaa' | lowercase }}
-  uppercase   //{{'Aaaa' | uppercase }}
-  percent     //{{123 | percent :'3.1-2' }}
-  slice       //{{[1,2,3,4,5] | slice :'1:3' }}
-  async       //{{myObservable | async }}
-              </code></pre>
+              <pre data-id="code-animation" style="width: 800px">
+                <code class="hljs" data-trim data-line-numbers>
+                  currency    //{{123 | currency:'PLN'}}
+                  date        //{{mydate | date:'shortTime'}}
+                  decimal     //{{12.2122 | number:'3.1-2'}}
+                  json        //{{myobject | json}}
+                  lowercase   //{{'Aaaa' | lowercase }}
+                  uppercase   //{{'Aaaa' | uppercase }}
+                  percent     //{{123 | percent :'3.1-2' }}
+                  slice       //{{[1,2,3,4,5] | slice :'1:3' }}
+                  async       //{{myObservable | async }}
+                </code>
+              </pre>
             </li>
           </ul>
         </section>
@@ -418,33 +432,27 @@
         >
           <h3 class="white">Async pipe</h3>
           <ul>
-            <li>
-              allows you to remove <key>subscribe()</key> from code,
-            </li>
-            <li>
-              works with promises and observables,
-            </li>
+            <li>allows you to remove <key>subscribe()</key> from code,</li>
+            <li>works with promises and observables,</li>
             <li>
               resolves observable in HTML:
               <ul>
-                <li>
-                  auto subscribe/unsubscribe,
-                </li>
-                <li>
-                  no need for additional binding in the component.
-                </li>
+                <li>auto subscribe/unsubscribe,</li>
+                <li>no need for additional binding in the component.</li>
               </ul>
             </li>
           </ul>
-          <pre
-            style="width:800px"
-          ><code>  &#x3C;div *ngIf="orders$ | async as orders";&#x3E;
-    &#x3C;div *ngFor=";let order of orders";&#x3E;
-      &#x3C;span&#x3E;
-        {{ order.id }} {{ order.details }}
-      &#x3C;/span&#x3E;
-    &#x3C;/div&#x3E;
-  &#x3C;/div&#x3E;</code></pre>
+          <pre data-id="code-animation" style="width: 800px">
+            <code class="hljs" data-trim data-line-numbers>
+              &#x3C;div *ngIf="orders$ | async as orders";&#x3E;
+              &#x3C;div *ngFor=";let order of orders";&#x3E;
+                &#x3C;span&#x3E;
+                  {{ order.id }} {{ order.details }}
+                  &#x3C;/span&#x3E;
+                  &#x3C;/div&#x3E;
+              &#x3C;/div&#x3E;
+            </code>
+          </pre>
         </section>
         <section>
           <h2>
@@ -453,27 +461,31 @@
         </section>
       </div>
     </div>
-		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
-		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
-			Reveal.initialize({
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
         history: true,
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-
-		</script>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
   </body>
 </html>
