@@ -10,25 +10,14 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
     <link rel="icon" href="../common/img/favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../reveal.js-3.8.0/css/reveal.css" />
-    <link rel="stylesheet" href="../reveal.js-3.8.0/css/theme/white.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
+    <link rel="icon" href="../common/img/favicon.ico" />
+    <link rel="stylesheet" href="../reveal.js-4.3.1/dist/reveal.css" />
+    <link rel="stylesheet" href="../reveal.js-4.3.1/dist/theme/white.css" />
     <link rel="stylesheet" href="../common/css/common.css" />
+
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal.js-3.8.0/lib/css/zenburn.css" />
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-      link.href = window.location.search.match(/print-pdf/gi)
-        ? "../reveal.js-3.8.0/css/print/pdf.css"
-        : "../reveal.js-3.8.0/css/print/paper.css";
-      document.getElementsByTagName("head")[0].appendChild(link);
-    </script>
+		<link rel="stylesheet" href="../reveal.js-4.3.1/plugin/highlight/monokai.css">
   </head>
   <body>
     <div class="reveal white">
@@ -627,20 +616,27 @@ fakeAsync(() => {
         </section>
       </div>
     </div>
-    <script src="../reveal.js-3.8.0/js/reveal.js"></script>
+		<script src="../reveal.js-4.3.1/dist/reveal.js"></script>
+		<script src="../reveal.js-4.3.1/plugin/zoom/zoom.js"></script>
+		<script src="../reveal.js-4.3.1/plugin/notes/notes.js"></script>
+		<script src="../reveal.js-4.3.1/plugin/search/search.js"></script>
+		<script src="../reveal.js-4.3.1/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js-4.3.1/plugin/highlight/highlight.js"></script>
     <script>
-      Reveal.initialize({
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
         history: true,
-        dependencies: [
-          {
-            src: "../reveal.js-3.8.0/plugin/highlight/highlight.js",
-            async: true
-          },
-          { src: "../reveal.js-3.8.0/plugin/search/search.js", async: true },
-          { src: "../reveal.js-3.8.0/plugin/zoom-js/zoom.js", async: true },
-          { src: "../reveal.js-3.8.0/plugin/notes/notes.js", async: true }
-        ]
-      });
-    </script>
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
   </body>
 </html>
